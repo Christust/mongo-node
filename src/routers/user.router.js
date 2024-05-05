@@ -19,6 +19,4 @@ router.delete("/:id", (req, res) => {
   res.json({ msg: "destroy" });
 });
 
-router.post("/login", userController.login);
-
 export default router;
