@@ -1,9 +1,9 @@
 import userModel from "../models/user.model.js";
-import { comparePassword, hashPassword } from "../services/hasher.service.js";
+import { hashPassword } from "../services/hasher.service.js";
 
 const userController = {};
 
-userController.getAll = async (req, res) => {
+userController.index = async (req, res) => {
   try {
     const users = await userModel.find();
     res.json({ users: users });
@@ -29,18 +29,38 @@ userController.create = async (req, res) => {
   }
 };
 
-userController.login = async (req, res) => {
-  const { email, password } = req?.body;
+userController.show = async (req, res) => {
+  const { id } = req.params
   try {
-    const user = await userModel.findOne({ email });
-    const validPassword = await comparePassword(
-      password.toString(),
-      user.password
-    );
-    res.json({ token: validPassword });
+    const user = await userModel.findById(id)
+    res.json({ user })
   } catch (error) {
-    res.json({ error: error.message });
+    res.status(401).json({ error: error.message });
   }
-};
+}
+
+userController.update = async (req, res) => {
+  const { id } = req?.params
+  const { email, name, last_name, password } = req?.body;
+  try {
+    const user = await userModel.findById(id)
+    user.updateOne()
+    res.json({ user })
+  } catch (error) {
+    res.status(401).json({ error: error.message });
+  }
+}
+
+userController.delete = async (req, res) => {
+  const { id } = req.params
+  try {
+    const user = await userModel.findById(id)
+    user.is_active = false
+    user.save()
+    res.json({ user })
+  } catch (error) {
+    res.status(401).json({ error: error.message });
+  }
+}
 
 export default userController;

@@ -3,20 +3,14 @@ import userController from "../controllers/user.controller.js";
 
 const router = e.Router();
 
-router.get("/", userController.getAll);
+router.get("/", userController.index);
 
 router.post("/", userController.create);
 
-router.get("/:id", (req, res) => {
-  res.json({ msg: "show" });
-});
+router.get("/:id", userController.show);
 
-router.put("/:id", (req, res) => {
-  res.json({ msg: "update" });
-});
+router.put("/:id", userController.update);
 
-router.delete("/:id", (req, res) => {
-  res.json({ msg: "destroy" });
-});
+router.delete("/:id", userController.delete);
 
 export default router;
