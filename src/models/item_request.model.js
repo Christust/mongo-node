@@ -7,7 +7,7 @@ const itemRequestSchema = new mongoose.Schema({
   amount: { type: Number, required: true },
   amount_returned: { type: Number, required: false, default: 0 },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const itemRequestModel = mongoose.model("ItemRequest", itemRequestSchema);
 

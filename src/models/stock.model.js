@@ -6,7 +6,7 @@ const stockSchema = new mongoose.Schema({
   item_id: {type: mongoose.Types.ObjectId, required: true },
   store_id: {type: mongoose.Types.ObjectId, required: true },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const stockModel = mongoose.model("Stock", stockSchema);
 

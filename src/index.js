@@ -11,7 +11,7 @@ const app = e();
 
 app.use(e.json());
 
-mongoose.connect(process.env.MONGO_URL, {dbName: process.env.MONGO_DB})
+mongoose.connect(process.env.MONGO_URL, { dbName: process.env.MONGO_DB });
 
 app.use("/", router);
 

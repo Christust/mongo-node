@@ -5,7 +5,7 @@ const maintenanceTypeSchema = new mongoose.Schema({
   type: { type: String, required: true },
   description: { type: String, required: true },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const maintenanceTypeModel = mongoose.model("MaintenanceType", maintenanceTypeSchema);
 

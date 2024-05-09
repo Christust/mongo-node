@@ -7,7 +7,7 @@ const branchSchema = new mongoose.Schema({
   state_id: {type: mongoose.Types.ObjectId, required: true },
   city_id: {type: mongoose.Types.ObjectId, required: true },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const branchModel = mongoose.model("Branch", branchSchema);
 

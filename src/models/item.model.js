@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
   unit: { type: String, enum: units, required: true },
   consumable: {type: Boolean, required: false, default: false},
   ...baseSchema
-});
+}, { timestamps: true });
 
 const itemModel = mongoose.model("Item", itemSchema);
 

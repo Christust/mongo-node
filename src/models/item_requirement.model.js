@@ -6,7 +6,7 @@ const itemRequirementSchema = new mongoose.Schema({
   material_requirement_id: { type: mongoose.Types.ObjectId, required: true },
   amount: { type: Number, required: true },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const itemRequirementModel = mongoose.model("ItemRequirement", itemRequirementSchema);
 

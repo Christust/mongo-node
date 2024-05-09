@@ -12,7 +12,7 @@ const maintenanceRequestSchema = new mongoose.Schema({
   user_id: { type: mongoose.Types.ObjectId, required: true },
   maintenance_type_id: { type: mongoose.Types.ObjectId, required: true },
   ...baseSchema
-});
+}, { timestamps: true });
 
 const maintenanceRequestModel = mongoose.model("MaintenanceRequest", maintenanceRequestSchema);
 
