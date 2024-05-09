@@ -14,8 +14,10 @@ authController.login = async (req, res) => {
         );
         if (validPassword) {
             const token = generateToken(user)
-            console.log(token);
-            res.json({ token, user });
+            const userObject = { ...user.toObject() }
+            delete userObject.password
+            delete userObject.__v
+            res.json({ token, user: userObject });
         } else res.status(404).json({ error: 'Credenciales invalidas' })
     } catch (error) {
         res.json({ error: error.message });

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { baseSchema } from "./base.model"; 
+import { baseSchema } from "./base.model.js"; 
 
 const citySchema = new mongoose.Schema({
   name: { type: String, required: true },

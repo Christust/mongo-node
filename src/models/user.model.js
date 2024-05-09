@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { baseSchema } from "./base.model";
+import { baseSchema } from "./base.model.js";
 
 const user_types = ["superadmin", "admin", "common"];
 

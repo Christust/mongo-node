@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { baseSchema } from "./base.model";
+import { baseSchema } from "./base.model.js";
 
 const itemRequestSchema = new mongoose.Schema({
   item_id: { type: mongoose.Types.ObjectId, required: true },

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { baseSchema } from "./base.model";
+import { baseSchema } from "./base.model.js";
 
 const maintenanceReportSchema = new mongoose.Schema({
   description: { type: String, required: true },
