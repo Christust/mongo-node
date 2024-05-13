@@ -11,10 +11,10 @@ const app = e();
 
 app.use(e.json());
 
-mongoose.connect(process.env.MONGO_URL, { dbName: process.env.MONGO_DB });
+mongoose.connect(process.env.MONGO_URL, { dbName: process.env.MONGO_DB })
 
 app.use("/", router);
 
 app.listen(PORT, () => {
-  console.log("Escuchando el puerto ", PORT);
+  console.log(`Escuchando el puerto http://localhost:${PORT}/`);
 });
